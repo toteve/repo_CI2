@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-let items = ["Elemento 1", "Elemento 2"];
+let items = ["Elemento 1", "Elemento 2", "Elemento 3"];
 
 app.get('/home', (req, res) => {
     res.json({ items });
