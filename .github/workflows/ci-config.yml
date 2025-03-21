@@ -1,0 +1,31 @@
+version: 1.0
+stages:
+  - build
+  - test
+  - deploy
+
+jobs:
+  build:
+    stage: build
+    script:
+      - run: echo "❌ Error en la etapa de Build"
+      - run: npm install
+      - run: npm run build
+    on_failure:
+      - run: echo "❌ Error en la etapa de Build"
+
+  test:
+    stage: test
+    script:
+      - run: echo "Ejecutando pruebas..."
+      - run: npm run test
+    on_failure:
+      - run: echo "❌ Error en la etapa de Test"
+
+  deploy:
+    stage: deploy
+    script:
+      - run: echo "Desplegando aplicación..."
+      - run: npm start &
+    on_failure:
+      - run: echo "❌ Error en la etapa de Deploy"
